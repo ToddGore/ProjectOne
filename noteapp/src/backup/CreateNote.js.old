@@ -10,12 +10,11 @@ class CreateNote extends React.Component {
         this.state = {
             title: "",
             content: "",
-            date: "",
-            note: {title: "", content: "", date: ""}
+            date: ""
         }
         this.handleChangeTitle = this.handleChangeTitle.bind(this)
         this.handleChangeContent = this.handleChangeContent.bind(this)
-        this.createClick = this.createClick.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
     getDate() {
         let today = new Date();
@@ -24,16 +23,16 @@ class CreateNote extends React.Component {
         return txtDate
     }
 
-    createClick() {
+    handleClick() {
         let thisDay = this.getDate()
 
-        // axios.post('/api/notes', {
-        //     title: this.state.title,
-        //     content: this.state.content,
-        //     date: thisDay
-        // }).then(results => {
-        //     this.setState({ 'notes': results.data });
-        // })
+        axios.post('/api/notes', {
+            title: this.state.title,
+            content: this.state.content,
+            date: thisDay
+        }).then(results => {
+            this.setState({ 'notes': results.data });
+        })
 
         // Use .then to update state. For example: to update your list of
         // notes after adding one.
@@ -42,28 +41,12 @@ class CreateNote extends React.Component {
     }
 
     handleChangeTitle(event) {
-        // this.setState({ title: event.target.value })
-        this.setState({...this.state, note: {
-            ...this.state.note,
-            title: event.target.value
-          }});
-
+        this.setState({ title: event.target.value })
+        // this.setState({ date: "2018-5-18" })
     }
     handleChangeContent(event) {
         this.setState({ content: event.target.value })
     }
-
-
-    // updatePreferences = (preferenceName, enteredValue) => {
-
-    //        this.setState({...this.state, note: {
-    //          ...this.state.note,
-    //          title: event.target.value
-    //        }});
-    //  }
-
-
-
 
     render() {
         return (
@@ -78,7 +61,7 @@ class CreateNote extends React.Component {
                     value={this.state.content}
                     onChange={this.handleChangeContent}>
                 </textarea>
-                <button onClick={this.createClick} id="btnSend">Send
+                <button onClick={this.handleClick} id="btnSend">Send
                 </button>
             </div>
         )

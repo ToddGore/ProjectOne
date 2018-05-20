@@ -1,0 +1,58 @@
+
+.container {
+
+}
+
+
+#author-paper {
+   float: left;
+   padding-left:100px;
+    width:600px;
+    height: 35px;
+    font-family:Courier, monospace;
+	font-weight:bold;
+    font-size:34px;
+    color: rgb(120, 120, 120);
+    background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+	background-repeat:repeat-y, repeat;
+}
+#author-paper::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(200, 200, 200);
+    opacity: 1; /* Firefox */
+}
+
+
+
+#content-paper {
+    float: left;
+    vertical-align: top;
+    color: rgb(120, 120, 120);
+    width:600px;
+    height: 400px;
+	font-family:Courier, monospace;
+	font-weight:normal;
+	font-size:30px;
+	resize:none;
+	line-height:41px;
+	padding-left:100px;
+	background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+    background-repeat:repeat-y, repeat;
+    background-size: 700px 41px;
+}
+
+#content-paper::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(200, 200, 200);
+    opacity: 1; /* Firefox */
+}
+
+
+
+#btnSend {
+    font-size: 16px;
+    margin: 0 10px;
+    border: 1px solid gray;
+    background: lightskyblue;
+    height: 40px;
+    width: 60px;
+
+}

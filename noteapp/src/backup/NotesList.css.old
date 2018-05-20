@@ -1,0 +1,50 @@
+.sidebar-left {
+    color:white;
+    width: 400px;
+    height: 500px;
+    background: rgb(65, 65, 65);
+    float: left;
+    text-align: left;
+    overflow-y: auto;
+  }
+#left-sidebar-elements {
+    padding: 0px;
+    margin: 0px;
+    position:relative;
+}
+
+#left-sidebar-elements > p {
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;
+    height: 20px;
+}
+
+#left-sidebar-elements:nth-child(even) {
+    background: rgb(55, 55, 55);
+}
+#left-sidebar-elements:hover { 
+    background-color: rgb(95, 95, 95);
+}
+
+
+#left-sidebar-button {
+    position:absolute;
+    top: 0px;
+    right: 10px;
+}
+
+
+h3 {
+    padding: 0px;
+    margin: 0px;
+}
+
+  .lowerHr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 3px solid rgb(85, 85, 85);
+    margin: 0;
+    padding: 0; 
+  }
