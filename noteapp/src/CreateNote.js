@@ -52,7 +52,7 @@ class CreateNote extends React.Component {
         return (
             <div className="container">
                 <textarea type="text" id="author-paper"
-                    placeholder="Title"
+                    placeholder="Title Text"
                     value={this.state.title}
                     onChange={this.handleChangeTitle}>
                 </textarea>

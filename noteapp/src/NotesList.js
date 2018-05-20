@@ -35,7 +35,8 @@ class NotesList extends React.Component {
         })
     }
 
-    editNote() {
+    editNote(stuff) {
+        console.log(stuff);
 
     }
 
