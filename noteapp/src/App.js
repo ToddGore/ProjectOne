@@ -10,32 +10,33 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      // note: { title: "", content: "", date: "" }
     };
+
+    this.postNote = this.postNote.bind(this);
     this.getNotes = this.getNotes.bind(this);
+    this.putNote = this.putNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
-    this.editNote = this.editNote.bind(this);
+
   }
 
-  postNote() {
-    let thisDay = this.getDate()
-    axios.post('/api/notes', {
-      title: this.state.title,
-      content: this.state.content,
-      date: thisDay
-  }).then(results => {
+  postNote(note) {
+    console.log('postNote ', note);
+
+    axios.post('/api/notes', note).then(results => {
       this.setState({ 'notes': results.data });
     })
   }
-  
+
   getNotes() {
     axios.get('/api/notes').then(results => {
       this.setState({ 'notes': results.data });
     })
   }
 
-  editNote(stuff) {
-    console.log(stuff);
+  putNote(note) {
+    // console.log('putNote ', note);
 
   }
 
@@ -44,13 +45,7 @@ class App extends Component {
       this.setState({ 'notes': results.data });
     })
   }
-  
-//   getDate() {
-//     let today = new Date();
-//     let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
-//     let txtDate = date.toString(); // This may not be needed. date may already be a string.
-//     return txtDate
-// }
+
 
 
   render() {
@@ -61,16 +56,20 @@ class App extends Component {
           <h1 className="App-title">Notes-Pro</h1>
         </header>
         <div>
-          <NotesList delClick={this.deleteNote}
+          <NotesList
+            delClick={this.deleteNote}
+            putClick={this.putNote}
             getClick={this.getNotes}
             notes={this.state.notes}
           />
           <div className="toolBar"></div>
-          <CreateNote />
+          <CreateNote
+            postClick={this.postNote}
+            noteTitle={this.props.noteTitle}
+            noteContent={this.props.noteContent}
+          // note={this.state.note}
+          />
         </div>
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
       </div>
     );
   }
