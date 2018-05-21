@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box; 
+}
+
+
 .App {
   text-align: center;
 }
@@ -9,9 +14,16 @@
 
 .App-header {
   background-color:lightblue;
-  height: 150px;
+  height: 170px;
   padding: 20px;
   color: white;
+}
+
+section {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
 }
 
 .App-title {
@@ -22,9 +34,14 @@
   font-size: large;
 }
 
+footer {
+  background: lightblue;
+  height: 8.2vh;
+}
+header, footer{
+  padding: 1em;
+}
 
-.toolBar{
-  width: 1200px;
-  height: 50px;
-  background: rgb(224, 218, 163);
+.highlight {
+  color: red;
 }

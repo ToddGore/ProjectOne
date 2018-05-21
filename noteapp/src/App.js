@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import logo from './SomNote.png';
+// import logo from './SomNote.png';
 import './App.css';
 import CreateNote from './CreateNote';
-import NotesList from './NotesList';
+import Header from './Header';
+// import NotesList from './NotesList';
 
 
 class App extends Component {
@@ -11,7 +12,6 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      // note: { title: "", content: "", date: "" }
     };
 
     this.postNote = this.postNote.bind(this);
@@ -35,13 +35,25 @@ class App extends Component {
     })
   }
 
-  putNote(note) {
-    // console.log('putNote ', note);
+  putNote(noteP) {
+    console.log('putNote ', noteP);
+    axios.put(`/api/notes/${noteP.id}`,
+      noteP
+    ).then(results => {
+      this.setState({ 'notes': results.data });
+    })
+
+    // These brackets were my problem.
+    // axios.put(`/api/notes/${noteP.id}`,{
+    //   noteP
+    // })
 
   }
 
-  deleteNote() {
-    axios.delete('/api/notes/:id').then(results => {
+  deleteNote(note) {
+    console.log('deleteNote ', note);
+    axios.delete(`/api/notes/${note.id}`).then(results => {
+      // axios.delete('/api/notes/:id').then(results => {
       this.setState({ 'notes': results.data });
     })
   }
@@ -50,27 +62,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Notes-Pro</h1>
-        </header>
-        <div>
-          <NotesList
+      <section className="App" >
+        <Header />
+        <div id="main">
+
+          <CreateNote
             delClick={this.deleteNote}
             putClick={this.putNote}
             getClick={this.getNotes}
             notes={this.state.notes}
-          />
-          <div className="toolBar"></div>
-          <CreateNote
+
             postClick={this.postNote}
             noteTitle={this.props.noteTitle}
             noteContent={this.props.noteContent}
           // note={this.state.note}
           />
         </div>
-      </div>
+        <footer></footer>
+      </section>
     );
   }
 }

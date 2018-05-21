@@ -1,14 +1,30 @@
 
-.container {
+* {
+    box-sizing: border-box; 
+  }
 
+.container {
+    margin: 5px auto;
+    width: 1120px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.button-area {
+    height: 230px;
+    width: 100px;
+    order: 3;
 }
 
+.text-area{
+    height: 600px;
+    width: 600px;
+    order: 2;
+}
 
 #author-paper {
-   float: left;
    padding-left:100px;
     width:600px;
-    height: 35px;
+    height: 40px;
     font-family:Courier, monospace;
 	font-weight:bold;
     font-size:34px;
@@ -24,11 +40,10 @@
 
 
 #content-paper {
-    float: left;
     vertical-align: top;
     color: rgb(120, 120, 120);
     width:600px;
-    height: 400px;
+    height: 280px;
 	font-family:Courier, monospace;
 	font-weight:normal;
 	font-size:30px;
@@ -48,11 +63,59 @@
 
 
 #btnSend {
-    font-size: 16px;
-    margin: 0 10px;
-    border: 1px solid gray;
+    display: block;
+    font-size: 14px;
+    vertical-align: top;
+    margin: 10px 10px;
+    padding: 0;
     background: lightskyblue;
     height: 40px;
-    width: 60px;
+    width: 70px;
+    border: 2px solid #4286f4;
+    border-radius: 15px;
 
+}
+
+#btnSend:hover { 
+    background-color: #4286f4;
+}
+
+#btnSend:disabled {
+    background: #dddddd;
+    color: rgb(180, 180, 180);
+    border: 2px solid rgb(180, 180, 180);
+}
+
+
+.toolBar{
+    
+    order: 2;
+    font-size: 23px;
+    width: 600px;
+    height: 100px;
+    background: lightcyan;
+    float: left;
+  }
+  .toolBar::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: lightblue;
+    opacity: 1; /* Firefox */
+}
+
+.translate-check {
+    width: 600px;
+    height: 40px;
+}
+
+
+.translate{
+    order: 2;
+    font-size: 23px;
+    width: 600px;
+    height: 100px;
+    background: lightcyan;
+    float: left;
+  }
+  .translate::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: lightblue;
+    opacity: 1; /* Firefox */
 }
