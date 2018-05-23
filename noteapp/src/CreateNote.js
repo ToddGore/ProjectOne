@@ -50,10 +50,7 @@ class CreateNote extends React.Component {
     }
 
     editClick(element) {
-        this.setState({ update: true })
-        this.setState({ send: false })
-        this.setState({ translate: true })
-        this.setState({ 'note': element });
+        this.setState({ update: true, send: false, translate: true, 'note': element })
     }
 
     updateClick() {
@@ -98,9 +95,7 @@ class CreateNote extends React.Component {
 
     handleChangeTitle(event) {
         if (event.target.value > "" &&
-            this.state.update === false
-
-        ) {
+            this.state.update === false) {
             this.setState({ send: true })
             this.setState({ spell: true })
             this.setState({ translate: true })
@@ -131,9 +126,9 @@ class CreateNote extends React.Component {
                     <p>{element.content}</p>
                     <p>{element.id}</p>
                     <span id="left-sidebar-button">
-                        <input type="button" value="EDIT"
+                        <input className="notesButtons" type="button" value="EDIT"
                             onClick={() => this.editClick(element)}></input>
-                        <input type="button" value="DEL"
+                        <input className="notesButtons" type="button" value="DEL"
                             onClick={() => this.deleteClick(element)}></input>
                     </span>
                     <hr className="lowerHr" />
@@ -143,15 +138,16 @@ class CreateNote extends React.Component {
 
         return (
             <div className="container">
-
-                <div className="sidebar-left" >
-                    <h2>Notes List</h2>
-                    <button className='btn-get' onClick={this.props.getClick}>Get Notes</button>
-                    <hr />
-
-                    {notesToDisplay}
+                <div className="sidebar-container">
+                    <div className="sidebar-header">
+                        <h2>Notes List</h2>
+                        <button className='btn-get' onClick={this.props.getClick}>Get Notes</button>
+                        <hr />
+                    </div>
+                    <div className="sidebar-left" >
+                        {notesToDisplay}
+                    </div>
                 </div>
-
                 <div className="button-area">
                     <button
                         onClick={this.createClick}

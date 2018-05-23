@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import logo from './SomNote.png';
 import './App.css';
 import CreateNote from './CreateNote';
 import Header from './Header';
@@ -53,11 +52,9 @@ class App extends Component {
   deleteNote(note) {
     console.log('deleteNote ', note);
     axios.delete(`/api/notes/${note.id}`).then(results => {
-      // axios.delete('/api/notes/:id').then(results => {
       this.setState({ 'notes': results.data });
     })
   }
-
 
 
   render() {
@@ -71,11 +68,9 @@ class App extends Component {
             putClick={this.putNote}
             getClick={this.getNotes}
             notes={this.state.notes}
-
             postClick={this.postNote}
             noteTitle={this.props.noteTitle}
             noteContent={this.props.noteContent}
-          // note={this.state.note}
           />
         </div>
         <footer></footer>
